@@ -27,13 +27,32 @@ def main():
     with tgt_lang_col:
         degree = st.select_slider('convert degree', ["Low", "Medium", "High"], key='speed')
     with swap_btn_col:
-        bt1 = st.markdown('<button class="custom-button">Convert</button>', unsafe_allow_html=True)
+        # bt1 = st.markdown('<button class="custom-button" onclick = "alert(点击)">Convert</button>', unsafe_allow_html=True)
+        st.markdown(
+            """
+            <style>
+            .custom-button {
+                padding: 7px 14px; /* 内边距 */
+                margin: 25px 2px;
+                border: none; /* 边框 */
+                border-radius: 5px; /* 圆角 */
+                font-size: 16px; /* 字体大小 */
+                }
+            .custom-button:hover {
+                background-color: #45a049; /* 悬停时的背景颜色 */
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+        bt1 = st.button("Convert",key="custom-button")
     if bt1 and text_to_speech:
         print('text_to_speech', text_to_speech)
         out = convert(text_to_speech, "{}_{}".format(style, degree))
     else:
         st.warning('Please make sure your text is not empty!')
     st.text_area('📖 Output after conversion:', out)
+
 
 
 
