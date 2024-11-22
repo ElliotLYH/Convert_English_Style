@@ -1,0 +1,10 @@
+.custom-button {
+    padding: 7px 14px; /* 内边距 */
+    margin: 25px 2px;
+    border: none; /* 边框 */
+    border-radius: 5px; /* 圆角 */
+    font-size: 16px; /* 字体大小 */
+}
+.custom-button:hover {
+    background-color: #45a049; /* 悬停时的背景颜色 */
+}
